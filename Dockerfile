@@ -3,12 +3,12 @@ copy /gulpfile.js /gulpfile.js
 copy /package.json /package.json
 RUN apt-get update
 RUN apt-get install -y wget
-RUN wget https://nodejs.org/download/release/v6.10.0/node-v6.10.0-linux-x64.tar.gz
-RUN tar -zxvf node-v6.10.0-linux-x64.tar.gz
-RUN rm -rf node-v6.10.0-linux-x64.tar.gz 
-RUN ln -s /node-v6.10.0-linux-x64/bin/node /usr/local/bin/node
-RUN ln -s /node-v6.10.0-linux-x64/bin/npm /usr/local/bin/npm
-RUN ls /node-v6.10.0-linux-x64/bin/
+RUN wget https://nodejs.org/download/release/v7.5.0/node-v7.5.0-linux-x64.tar.gz
+RUN tar -zxvf node-v7.5.0-linux-x64.tar.gz
+RUN rm -rf node-v7.5.0-linux-x64.tar.gz 
+RUN ln -s /node-v7.5.0-linux-x64/bin/node /usr/local/bin/node
+RUN ln -s /node-v7.5.0-linux-x64/bin/npm /usr/local/bin/npm
+RUN ls /node-v7.5.0-linux-x64/bin/
 
 RUN npm --version
 RUN npm -g install run-sequence amd-optimize apache-server-configs

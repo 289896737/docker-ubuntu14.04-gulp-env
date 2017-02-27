@@ -1,7 +1,6 @@
 FROM ubuntu:14.04
 copy /gulpfile.js /gulpfile.js
 copy /package.json /package.json
-RUN cd /opt/app
 RUN apt-get update
 RUN apt-get install -y wget
 RUN wget https://nodejs.org/download/release/v6.10.0/node-v6.10.0-linux-x64.tar.gz

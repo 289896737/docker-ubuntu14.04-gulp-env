@@ -1,12 +1,12 @@
 FROM ubuntu:14.04
 copy /gulpfile.js /gulpfile.js
 copy /package.json /package.json
-RUN mkdir -P /opt/app
+RUN mkdir -p /opt/app
 RUN cd /opt/app
 RUN apt-get update
 RUN apt-get install -y wget
 RUN wget https://nodejs.org/download/release/v6.10.0/node-v6.10.0-linux-x64.tar.gz
-tar -zxvf node-v6.10.0-linux-x64.tar.gz
+RUN tar -zxvf node-v6.10.0-linux-x64.tar.gz
 RUN sudo ln -s /opt/app/node-v6.10.0-linux-x64/bin/node /usr/local/bin/node
 RUN sudo ln -s /opt/app/node-v6.10.0-linux-x64/bin/npm /usr/local/bin/npm
 RUN npm -g install run-sequence amd-optimize apache-server-configs

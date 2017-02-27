@@ -11,7 +11,7 @@ RUN rm -rf node-v6.10.0-linux-x64.tar.gz
 RUN ln -s /opt/app/node-v6.10.0-linux-x64/bin/node /usr/local/bin/node
 RUN ln -s /opt/app/node-v6.10.0-linux-x64/bin/npm /usr/local/bin/npm
 RUN ls /usr/local/bin
-RUN npm --version
+RUN /opt/app/node-v6.10.0-linux-x64/bin/npm --version
 RUN npm -g install run-sequence amd-optimize apache-server-configs
 RUN npm -g install archiver del event-stream glob gulp gulp-autoprefixer
 RUN npm -g install gulp-changed gulp-concat gulp-header

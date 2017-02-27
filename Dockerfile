@@ -1,16 +1,15 @@
 FROM ubuntu:14.04
 copy /gulpfile.js /gulpfile.js
 copy /package.json /package.json
-RUN mkdir -p /opt/app
 RUN cd /opt/app
 RUN apt-get update
 RUN apt-get install -y wget
 RUN wget https://nodejs.org/download/release/v6.10.0/node-v6.10.0-linux-x64.tar.gz
 RUN tar -zxvf node-v6.10.0-linux-x64.tar.gz
 RUN rm -rf node-v6.10.0-linux-x64.tar.gz 
-RUN ln -s /opt/app/node-v6.10.0-linux-x64/bin/node /usr/local/bin/node
-RUN ln -s /opt/app/node-v6.10.0-linux-x64/bin/npm /usr/local/bin/npm
-RUN ls /usr/local/bin
+RUN ln -s /node-v6.10.0-linux-x64/bin/node /usr/local/bin/node
+RUN ln -s /node-v6.10.0-linux-x64/bin/npm /usr/local/bin/npm
+RUN ls /node-v6.10.0-linux-x64/bin/
 
 RUN npm --version
 RUN npm -g install run-sequence amd-optimize apache-server-configs
@@ -31,7 +30,7 @@ RUN export NODE_PATH=/usr/local/lib/node_modules
 RUN gulp
 RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-linux-i586.tar.gz
 RUN tar -zxvf jdk-8u101-linux-i586.tar.gz
-RUN export JAVA_HOME=/opt/app/jdk1.8.0_111
+RUN export JAVA_HOME=/jdk1.8.0_111
 RUN export PATH=${JAVA_HOME}/bin:$PATH
 RUN java -version
 

@@ -26,12 +26,12 @@ RUN npm config set https-proxy=http://172.17.18.84:8080
 RUN npm config set registry https://registry.npm.taobao.org
 RUN npm link gulp
 RUN export NODE_PATH=/usr/local/lib/node_modules
-RUN gulp
+#RUN gulp
 RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-linux-i586.tar.gz
 RUN tar -zxvf jdk-8u101-linux-i586.tar.gz
 RUN export JAVA_HOME=/jdk1.8.0_111
 RUN export PATH=${JAVA_HOME}/bin:$PATH
-RUN java -version
+#RUN java -version
 
 
 

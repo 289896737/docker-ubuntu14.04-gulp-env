@@ -8,7 +8,8 @@ RUN tar -zxvf node-v7.5.0-linux-x64.tar.gz
 RUN rm -rf node-v7.5.0-linux-x64.tar.gz 
 RUN ln -s /node-v7.5.0-linux-x64/bin/node /usr/local/bin/node
 RUN ln -s /node-v7.5.0-linux-x64/bin/npm /usr/local/bin/npm
-RUN ls /node-v7.5.0-linux-x64/bin/
+RUN npm config set prefix /usr/local
+RUN npm root
 
 RUN npm --version
 RUN npm -g install run-sequence amd-optimize apache-server-configs
@@ -24,14 +25,14 @@ RUN npm -g install browser-sync
 RUN npm config set proxy=http://172.17.18.84:8080
 RUN npm config set https-proxy=http://172.17.18.84:8080
 RUN npm config set registry https://registry.npm.taobao.org
+ENV NODE_PATH /usr/local/lib/node_modules
 RUN npm link gulp
-RUN export NODE_PATH=/usr/local/lib/node_modules
-#RUN gulp
+RUN gulp
 RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-linux-i586.tar.gz
 RUN tar -zxvf jdk-8u101-linux-i586.tar.gz
-RUN export JAVA_HOME=/jdk1.8.0_111
-RUN export PATH=${JAVA_HOME}/bin:$PATH
-#RUN java -version
+ENV JAVA_HOME /jdk1.8.0_111
+ENV PATH ${JAVA_HOME}/bin:$PATH
+RUN java -version
 
 
 

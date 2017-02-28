@@ -32,7 +32,7 @@ RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=acc
 RUN tar -zxvf jdk-8u101-linux-i586.tar.gz
 ENV JAVA_HOME /jdk1.8.0_111
 ENV PATH ${JAVA_HOME}/bin:$PATH
-RUN java -version
+#RUN java -version
 
 
 
